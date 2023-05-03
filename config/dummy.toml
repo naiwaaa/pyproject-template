@@ -1,0 +1,18 @@
+[data]
+data_dir = "./datasets"
+
+[model]
+
+[training]
+optimizer     = "adam"
+loss_func     = "mse"
+max_epochs    = 1
+batch_size    = 32
+learning_rate = 0.001
+
+[wandb]
+project = "py_project"
+tags    = []
+resume  = false
+
+[misc]
