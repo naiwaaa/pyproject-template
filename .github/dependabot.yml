@@ -5,11 +5,28 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
-    open-pull-requests-limit: 5
+      day: "monday"
+      time: "12:00"
+    versioning-strategy: lockfile-only
+    open-pull-requests-limit: 10
+    reviewers:
+      - naiwaaa
+    labels:
+      - dependencies
     commit-message:
-      prefix: "chore(dependabot): "
+      prefix: "chore(dependabot)"
+      prefix-development: "chore(dependabot-dev)"
 
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "monthly"
+      day: "monday"
+      time: "12:00"
+    open-pull-requests-limit: 10
+    reviewers:
+      - naiwaaa
+    labels:
+      - dependencies
+    commit-message:
+      prefix: "chore(dependabot-dev)"
