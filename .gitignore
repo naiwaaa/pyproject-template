@@ -19,8 +19,11 @@ notebooks/*
 # WandB
 **/wandb/
 
-# Created by https://www.toptal.com/developers/gitignore/api/vim,emacs,visualstudiocode,windows,linux,macos,osx,python,pycharm,pycharm+all,pycharm+iml,pythonvanilla,jupyternotebooks,pydev
-# Edit at https://www.toptal.com/developers/gitignore?templates=vim,emacs,visualstudiocode,windows,linux,macos,osx,python,pycharm,pycharm+all,pycharm+iml,pythonvanilla,jupyternotebooks,pydev
+# Created by https://www.toptal.com/developers/gitignore/api/osx,vim,asdf,emacs,linux,macos,pydev,python,pycharm,windows,pycharm+all,pycharm+iml,pythonvanilla,jupyternotebooks,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=osx,vim,asdf,emacs,linux,macos,pydev,python,pycharm,windows,pycharm+all,pycharm+iml,pythonvanilla,jupyternotebooks,visualstudiocode
+
+### asdf ###
+/.tool-versions
 
 ### Emacs ###
 # -*- mode: gitignore; -*-
@@ -636,4 +639,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.toptal.com/developers/gitignore/api/vim,emacs,visualstudiocode,windows,linux,macos,osx,python,pycharm,pycharm+all,pycharm+iml,pythonvanilla,jupyternotebooks,pydev
+# End of https://www.toptal.com/developers/gitignore/api/osx,vim,asdf,emacs,linux,macos,pydev,python,pycharm,windows,pycharm+all,pycharm+iml,pythonvanilla,jupyternotebooks,visualstudiocode
