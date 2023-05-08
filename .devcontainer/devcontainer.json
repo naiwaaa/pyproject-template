@@ -15,6 +15,7 @@
         "ms-python.isort",
         "ms-python.flake8",
         "ms-python.black-formatter",
+        "ms-toolsai.jupyter",
         "tamasfe.even-better-toml"
       ],
       "settings": {
@@ -47,7 +48,6 @@
         "prettier.singleAttributePerLine": true,
         "prettier.trailingComma": "all",
         "python.analysis.autoImportCompletions": true,
-        "python.analysis.completeFunctionParens": true,
         "python.formatting.provider": "black",
         "python.languageServer": "Pylance",
         "python.linting.flake8Enabled": true,
@@ -59,9 +59,6 @@
       }
     }
   },
-  "hostRequirements": {
-    "memory": "4gb"
-  },
   "name": "py-package-dev-env",
   "onCreateCommand": "poetry install && poetry run pre-commit install",
   "remoteUser": "devcontainer",
@@ -71,10 +68,6 @@
     "--gpus",
     "all",
     "--ipc",
-    "host",
-    "--ulimit",
-    "memlock=-1",
-    "--ulimit",
-    "stack=67108864"
+    "host"
   ]
 }
