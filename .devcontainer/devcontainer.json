@@ -59,12 +59,12 @@
       }
     }
   },
-  "name": "py-package-dev-env",
+  "name": "py-project-dev-env",
   "onCreateCommand": "poetry install && poetry run pre-commit install",
   "remoteUser": "devcontainer",
   "runArgs": [
     "--name",
-    "py-package-dev-container",
+    "py-project-dev-container",
     "--gpus",
     "all",
     "--ipc",
