@@ -205,6 +205,8 @@ ignore = [
   "N812",
   # Missing type self
   "ANN101",
+  # Disallow typing.Any
+  "ANN401",
 ]
 src = ["src"]
 target-version = "py310"
