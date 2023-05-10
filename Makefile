@@ -40,7 +40,7 @@ test-lint: ## Run code linting tests
 	poetry run ruff check .
 	poetry run flake8 .
 	poetry run pylint $$(git ls-files '*.py')
-	poetry run mypy --verbose .
+	poetry run mypy .
 
 .PHONY: test-unit
 test-unit: ## Run unit tests
