@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := help
 
-PKG_NAME      := py_project
+PROJECT_SLUG  := py_project
 
 COLOR         :=\033[0;32m
 NC            :=\033[0m
@@ -17,7 +17,7 @@ doc: ## Open package documentation
 	@poetry run pdoc \
 		--docformat google \
 		--math \
-		src/$(PKG_NAME)
+		src/$(PROJECT_SLUG)
 
 .PHONY: format
 format: ## Format code

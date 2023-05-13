@@ -1,5 +1,22 @@
 FROM nvidia/cuda:11.7.1-cudnn8-runtime-ubuntu22.04
 
+ENV \
+    NVIDIA_VISIBLE_DEVICES=all \
+    NVIDIA_DRIVER_CAPABILITIES=compute,utility
+
+ENV \
+    PYTHONUNBUFFERED=1 \
+    PYTHONFAULTHANDLER=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=on \
+    PIP_DEFAULT_TIMEOUT=100
+
+ENV \
+    POETRY_HOME="/opt/poetry" \
+    POETRY_VIRTUALENVS_IN_PROJECT=true \
+    POETRY_NO_INTERACTION=1 \
+    VENV_PATH="$PROJECT_PATH/.venv"
+
+ENV PATH="$VENV_PATH/bin:$POETRY_HOME/bin:$PATH"
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update -y && \
@@ -12,10 +29,9 @@ RUN apt-get update -y && \
     sudo \
     wget && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/* && \
-    curl -sSL https://install.python-poetry.org | POETRY_HOME=/opt/poetry python3.10 -
+    rm -rf /var/lib/apt/lists/*
 
-ENV PATH=/opt/poetry/bin:$PATH
+RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=/opt/poetry python3.10 -
 
 ENV USERNAME=devcontainer
 ENV USER_UID=1000
@@ -25,10 +41,5 @@ RUN groupadd --gid $USER_GID $USERNAME && \
     useradd --uid $USER_UID --gid $USER_GID -s /usr/bin/bash -m $USERNAME && \
     usermod -aG sudo $USERNAME && \
     echo "${USERNAME} ALL=NOPASSWD:ALL" >> /etc/sudoers
-
-ENV NVIDIA_VISIBLE_DEVICES=all
-ENV NVIDIA_DRIVER_CAPABILITIES=compute,utility
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
 
 USER $USERNAME

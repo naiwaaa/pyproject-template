@@ -32,7 +32,7 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": true,
         "evenBetterToml.formatter.alignComments": true,
-        "evenBetterToml.formatter.alignEntries": true,
+        "evenBetterToml.formatter.alignEntries": false,
         "evenBetterToml.formatter.allowedBlankLines": 1,
         "evenBetterToml.formatter.arrayAutoCollapse": true,
         "evenBetterToml.formatter.arrayAutoExpand": true,
@@ -44,6 +44,7 @@
         "files.trimFinalNewlines": true,
         "files.trimTrailingWhitespace": true,
         "isort.check": true,
+        "notebook.formatOnSave.enabled": true,
         "prettier.printWidth": 90,
         "prettier.singleAttributePerLine": true,
         "prettier.trailingComma": "all",
@@ -59,12 +60,12 @@
       }
     }
   },
-  "name": "py-project-dev-env",
+  "name": "pyproject-dev-env",
   "onCreateCommand": "poetry install && poetry run pre-commit install",
   "remoteUser": "devcontainer",
   "runArgs": [
     "--name",
-    "py-project-dev-container",
+    "pyproject-dev-container",
     "--gpus",
     "all",
     "--ipc",
