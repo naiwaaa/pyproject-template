@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "py_project"
+name = "pyproject-template"
 version = "0.1.0"
 description = "Template for Python projects."
 authors = ["Tho Nguyen <122591009+naiwaaa@users.noreply.github.com>"]
@@ -97,6 +97,7 @@ length_sort = true
 lines_after_imports = 2
 group_by_package = true
 src_paths = ["src", "tests"]
+add_imports = ["from __future__ import annotations"]
 
 [tool.ruff]
 cache-dir = ".cache/ruff"
@@ -373,10 +374,6 @@ relative_files = true
 [tool.coverage.report]
 show_missing = true
 skip_covered = true
-exclude_lines = [
-  "pragma: no cover",
-  "raise NotImplementedError",
-  "if TYPE_CHECKING:",
-]
+exclude_lines = ["pragma: no cover", "raise NotImplementedError", "if TYPE_CHECKING:"]
 fail_under = 70
 omit = []
