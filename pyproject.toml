@@ -1,67 +1,67 @@
 [tool.poetry]
-name        = "py_project"
-version     = "0.1.0"
+name = "py_project"
+version = "0.1.0"
 description = "Template for Python projects."
-authors     = ["Tho Nguyen <122591009+naiwaaa@users.noreply.github.com>"]
-license     = "MIT"
-readme      = "README.md"
-packages    = [{ include = "py_project", from = "src" }]
-homepage    = "https://github.com/naiwaaa/pyproject-template"
-repository  = "https://github.com/naiwaaa/pyproject-template"
+authors = ["Tho Nguyen <122591009+naiwaaa@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "py_project", from = "src" }]
+homepage = "https://github.com/naiwaaa/pyproject-template"
+repository = "https://github.com/naiwaaa/pyproject-template"
 
 [tool.poetry.dependencies]
 python = "^3.10,<3.11"
 
-numpy        = "^1.24.3"
-matplotlib   = "^3.7.1"
+numpy = "^1.24.3"
+matplotlib = "^3.7.1"
 scikit-learn = "^1.2.2"
-scipy        = "^1.10.1"
-pandas       = "^2.0.1"
-pillow       = "^9.5.0"
+scipy = "^1.10.1"
+pandas = "^2.0.1"
+pillow = "^9.5.0"
 
-torch       = "^2.0.0"
+torch = "^2.0.0"
 torchvision = "^0.15.1"
 
 graphviz = "^0.20.1"
-pydot    = "^1.4.2"
-wandb    = "^0.14.2"
+pydot = "^1.4.2"
+wandb = "^0.14.2"
 
-tomli    = "^2.0.1"
-pyaml    = "^21.10.1"
+tomli = "^2.0.1"
+pyaml = "^21.10.1"
 pydantic = { extras = ["dotenv"], version = "^1.10.7" }
-rich     = { extras = ["jupyter"], version = "^13.3.5" }
+rich = { extras = ["jupyter"], version = "^13.3.5" }
 
 [tool.poetry.group.dev.dependencies]
 pdoc = "^13.1.1"
 
-black                = "^23.3.0"
-isort                = "^5.12.0"
-ruff                 = "^0.0.264"
-flake8               = "^6.0.0"
-flake8-aaa           = "^0.14.1"
+black = "^23.3.0"
+isort = "^5.12.0"
+ruff = "^0.0.264"
+flake8 = "^6.0.0"
+flake8-aaa = "^0.14.1"
 flake8-type-checking = "^2.4.0"
-darglint             = "^1.8.1"
-pylint               = "^2.17.3"
+darglint = "^1.8.1"
+pylint = "^2.17.3"
 
-pyupgrade  = "^3.3.2"
+pyupgrade = "^3.3.2"
 pre-commit = "^3.3.1"
-safety     = "^2.3.5"
+safety = "^2.3.5"
 
 jupyterlab = "^3.6.3"
-jupytext   = "^1.14.5"
+jupytext = "^1.14.5"
 
 [tool.poetry.group.test.dependencies]
-pytest           = "^7.3.1"
-pytest-cov       = "^4.0.0"
-pytest-mock      = "^3.10.0"
-pytest-xdist     = { extras = ["psutil"], version = "^3.2.1" }
-pytest-clarity   = "^1.0.1"
-pytest-randomly  = "^3.12.0"
+pytest = "^7.3.1"
+pytest-cov = "^4.0.0"
+pytest-mock = "^3.10.0"
+pytest-xdist = { extras = ["psutil"], version = "^3.2.1" }
+pytest-clarity = "^1.0.1"
+pytest-randomly = "^3.12.0"
 pytest-benchmark = "^4.0.0"
-hypothesis       = { extras = ["numpy"], version = "^6.75.1" }
+hypothesis = { extras = ["numpy"], version = "^6.75.1" }
 
 [tool.poetry.group.typing.dependencies]
-mypy         = "^1.2.0"
+mypy = "^1.2.0"
 types-pyyaml = "^6.0.12.9"
 types-pillow = "^9.5.0.2"
 
@@ -69,11 +69,11 @@ types-pillow = "^9.5.0.2"
 pyp = "py_project:cli.main"
 
 [build-system]
-requires      = ["poetry-core"]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.black]
-line-length    = 90
+line-length = 90
 target-version = ["py310"]
 
 [tool.isort]
@@ -197,6 +197,8 @@ ignore = [
   "D103",
   # Missing docstring in public package
   "D104",
+  # Missing docstring in magic method
+  "D105",
   # Missing docstring in public nested class
   "D106",
   # Missing docstring in `__init__`
@@ -233,14 +235,14 @@ ban-relative-imports = "all"
 
 [tool.pylint.main]
 extension-pkg-whitelist = ["pydantic"]
-jobs                    = 0
+jobs = 0
 
 [tool.pylint.basic]
 class-attribute-naming-style = "snake_case"
-good-names                   = ["x", "y", "i", "j", "k", "ex", "Run", "_"]
+good-names = ["x", "y", "i", "j", "k", "ex", "Run", "_"]
 
 [tool.pylint.design]
-max-args    = 5
+max-args = 5
 max-parents = 7
 
 [tool.pylint.format]
@@ -267,42 +269,42 @@ generated-members = ["numpy.*", "torch.*"]
 init-import = true
 
 [tool.mypy]
-mypy_path      = "src"
+mypy_path = "src"
 python_version = "3.10"
-exclude        = [".cache/", ".venv/"]
+exclude = [".cache/", ".venv/"]
 
 # disallow dynamic typing
 disallow_any_explicit = false
 disallow_any_generics = true
 
 # untyped definitions and calls
-disallow_untyped_calls      = true
-disallow_untyped_defs       = true
-disallow_incomplete_defs    = true
-check_untyped_defs          = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
 disallow_untyped_decorators = true
 
 # none and optional handling
 implicit_optional = false
-strict_optional   = true
+strict_optional = true
 
 # configuring warnings
 warn_redundant_casts = true
-warn_unused_ignores  = true
-warn_no_return       = true
-warn_return_any      = true
-warn_unreachable     = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_return_any = true
+warn_unreachable = true
 
 # miscellaneous strictness flags
 allow_redefinition = false
-implicit_reexport  = false
-strict_equality    = true
-strict             = true
+implicit_reexport = false
+strict_equality = true
+strict = true
 
 # configuring error messages
-show_error_context  = true
+show_error_context = true
 show_column_numbers = true
-show_error_codes    = true
+show_error_codes = true
 
 # incremental mode
 cache_dir = ".cache/mypy"
@@ -314,14 +316,14 @@ plugins = ["numpy.typing.mypy_plugin", "pydantic.mypy"]
 warn_unused_configs = true
 
 [[tool.mypy.overrides]]
-module                 = ["matplotlib.*", "sklearn.*", "plotly.*"]
+module = ["matplotlib.*", "sklearn.*", "plotly.*"]
 ignore_missing_imports = true
 
 [tool.pydantic-mypy]
-init_forbid_extra             = true
-init_typed                    = true
+init_forbid_extra = true
+init_typed = true
 warn_required_dynamic_aliases = true
-warn_untyped_fields           = true
+warn_untyped_fields = true
 
 [tool.pytest.ini_options]
 addopts = [
@@ -363,14 +365,18 @@ testpaths = ["src", "tests"]
 xfail_strict = true
 
 [tool.coverage.run]
-branch         = true
-data_file      = ".cache/coverage"
-omit           = ["**/test_*"]
+branch = true
+data_file = ".cache/coverage"
+omit = ["**/test_*"]
 relative_files = true
 
 [tool.coverage.report]
-show_missing  = true
-skip_covered  = true
-exclude_lines = ["pragma: no cover", "raise NotImplementedError", "if TYPE_CHECKING:"]
-fail_under    = 70
-omit          = []
+show_missing = true
+skip_covered = true
+exclude_lines = [
+  "pragma: no cover",
+  "raise NotImplementedError",
+  "if TYPE_CHECKING:",
+]
+fail_under = 70
+omit = []
