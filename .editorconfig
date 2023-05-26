@@ -14,6 +14,9 @@ trim_trailing_whitespace = true
 [*.py]
 indent_size = 4
 
+[*.ipynb]
+indent_size = 4
+
 [{Makefile, *.mk}]
 indent_style = tab
 indent_size = 4
