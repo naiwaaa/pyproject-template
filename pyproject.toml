@@ -5,10 +5,11 @@ build-backend = "hatchling.build"
 
 [project]
 name = "pyproject"
+dynamic = ["version"]
 description = "Template for Python projects."
 readme = "README.md"
-license = { file = "LICENSE.md" }
 requires-python = ">=3.12,<3.13"
+license = { file = "LICENSE.md" }
 authors = [{ name = "Tho Nguyen", email = "contact@naiwaaa.simplelogin.com" }]
 dependencies = [
   "numpy>=2.1.3",
@@ -26,13 +27,11 @@ dependencies = [
   "graphviz>=0.20.3",
   "pydot>=3.0.2",
   "wandb>=0.18.6",
-  #
   "pydantic>=2.9.2",
   "pydantic-settings>=2.6.1",
   "cloudpickle>=3.1.0",
   "rich[jupyter]>=13.9.4",
 ]
-dynamic = ["version"]
 
 [project.urls]
 Homepage = "https://sr.ht/~naiwaaa/pyproject-template"
@@ -42,7 +41,7 @@ Repository = "https://sr.ht/~naiwaaa/pyproject-template"
 cli = "pyproject.cli:main"
 
 [tool.hatch.version]
-path = "src/pyproject/__version__.py"
+path = "src/pyproject/__init__.py"
 
 [dependency-groups]
 dev = [
@@ -148,7 +147,7 @@ addopts = [
   "--doctest-modules",
   "--doctest-continue-on-failure",
   # pytest-cov
-  "--cov=src",
+  "--cov",
   "--cov-report=term-missing:skip-covered",
   "--cov-config=pyproject.toml",
   # pytest-xdist
@@ -163,6 +162,7 @@ addopts = [
   # pytest-benchmark
   "--benchmark-warmup=on",
   "--benchmark-columns=min,mean,stddev,outliers,rounds,iterations",
+  "--benchmark-sort=mean",
   "--benchmark-disable-gc",
   "--benchmark-storage=file://./.cache/benchmarks",
   "--benchmark-disable",
@@ -178,19 +178,18 @@ verbosity_assertions = 2
 xfail_strict = true
 
 [tool.coverage.run]
+source = ["src"]
 branch = true
 data_file = ".cache/coverage"
-# omit = ["**/test_*"]
 relative_files = true
 
 [tool.coverage.report]
+fail_under = 0
 show_missing = true
 skip_covered = true
 exclude_lines = [
-  "pragma: no cover",
-  "raise NotImplementedError",
+  "no cover",
   "if TYPE_CHECKING:",
+  "raise NotImplementedError",
   "if __name__ == .__main__.:",
 ]
-fail_under = 0
-omit = []
