@@ -54,29 +54,28 @@ url = "https://download.pytorch.org/whl/cu124"
 explicit = true
 
 [dependency-groups]
-dev = [
-  "pdoc>=15.0.0",
-  "pre-commit>=4.0.1",
-  #
-  "jupyterlab>=4.3.1",
-  "jupytext>=1.16.4",
-  #
-  "ruff>=0.8.0",
-  "pylint>=3.3.1",
-  "mypy[faster-cache]>=1.13.0",
-  #
+dev = ["pre-commit>=4.0.1", "ruff>=0.8.1"]
+docs = ["pdoc>=15.0.0"]
+notebooks = ["jupyterlab>=4.3.1", "jupytext>=1.16.4"]
+testing = [
   "pytest>=8.3.3",
   "pytest-cov>=6.0.0",
   "pytest-mock>=3.14.0",
-  "pytest-xdist>=3.6.1",
   "pytest-memray>=1.7.0",
+  "pytest-pretty>=1.2.0",
   "pytest-clarity>=1.0.1",
   "pytest-randomly>=3.16.0",
   "pytest-instafail>=0.5.0",
   "pytest-benchmark>=5.1.0",
-  "hypothesis>=6.121.0",
-  #
-  "types-pillow>=10.2.0.20240822",
+  "hypothesis>=6.121.1",
+]
+type-checking = ["mypy[faster-cache]>=1.13.0", "types-pillow>=10.2.0.20240822"]
+all = [
+  { include-group = 'dev' },
+  { include-group = 'docs' },
+  { include-group = 'notebooks' },
+  { include-group = 'testing' },
+  { include-group = 'type-checking' },
 ]
 
 [tool.mypy]
@@ -126,10 +125,10 @@ cache_dir = ".cache/mypy"
 # advanced options
 plugins = ["numpy.typing.mypy_plugin", "pydantic.mypy"]
 # miscellaneous
-warn_unused_configs = true
+warn_unused_configs = false
 
 [[tool.mypy.overrides]]
-module = ["matplotlib.*", "sklearn.*", "plotly.*"]
+module = ["matplotlib.*", "sklearn.*"]
 ignore_missing_imports = true
 
 [tool.pydantic-mypy]
@@ -160,8 +159,6 @@ addopts = [
   "--cov",
   "--cov-report=term-missing:skip-covered",
   "--cov-config=pyproject.toml",
-  # pytest-xdist
-  "--numprocesses=auto",
   # pytest-memray
   "--memray",
   "--most-allocations=5",
