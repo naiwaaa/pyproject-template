@@ -29,6 +29,8 @@ select = [
   "UP",
   # flake8-annotations
   "ANN",
+  # flake8-async,
+  "ASYNC",
   # flake8-bandit
   "S",
   # flake8-blind-except
@@ -86,7 +88,7 @@ select = [
   # flake8-tidy-imports
   "TID",
   # flake8-type-checking
-  "TCH",
+  "TC",
   # flake8-unused-arguments
   "ARG",
   # flake8-use-pathlib
@@ -123,12 +125,16 @@ ignore = [
   "D100",
   # Missing docstring in public package
   "D104",
+  # Missing docstring in magic method
+  "D105",
+  # Missing docstring in __init__
+  "D107",
   # Trailing comma missing
   "COM812",
   # Implicitly concatenated string literals on one line
   "ISC001",
 ]
-typing-modules = ["typing", "typing_extensions", "numpy.typing"]
+typing-modules = ["numpy.typing"]
 
 [lint.per-file-ignores]
 "**/scripts/*" = [
