@@ -49,6 +49,8 @@ select = [
   "DTZ",
   # flake8-debugger
   "T10",
+  # flake8-django
+  # "DJ",
   # flake8-errmsg
   "EM",
   # flake8-executable
@@ -111,6 +113,10 @@ select = [
   "FLY",
   # NumPy-specific rules
   "NPY",
+  # FastAPI
+  # "FAST",
+  # Airflow
+  # "AIR",
   # Perflint
   "PERF",
   # refurb
@@ -159,6 +165,9 @@ typing-modules = ["numpy.typing"]
 [lint.flake8-boolean-trap]
 extend-allowed-calls = ["pydantic.Field"]
 
+[lint.flake8-bugbear]
+extend-immutable-calls = ["fastapi.Depends", "fastapi.Query"]
+
 [lint.flake8-import-conventions.extend-aliases]
 scipy = "sp"
 
@@ -172,7 +181,7 @@ ban-relative-imports = "all"
 [lint.flake8-type-checking]
 exempt-modules = ["typing", "typing_extensions"]
 runtime-evaluated-base-classes = ["pydantic.BaseModel"]
-runtime-evaluated-decorators = ["pydantic.validate_call"]
+runtime-evaluated-decorators = ["pydantic.validate_call", "fastapi.FastAPI.get"]
 strict = true
 
 [lint.isort]
