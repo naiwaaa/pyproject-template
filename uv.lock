@@ -16,7 +16,7 @@ dependencies = [
     { name = "jsonschema" },
     { name = "narwhals" },
     { name = "packaging" },
-    { name = "typing-extensions" },
+    { name = "typing-extensions", marker = "python_full_version == '3.12.*'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/16/b1/f2969c7bdb8ad8bbdda031687defdce2c19afba2aa2c8e1d2a17f78376d8/altair-5.5.0.tar.gz", hash = "sha256:d960ebe6178c56de3855a68c47b516be38640b73fb3b5111c2a9ca90546dd73d", size = 705305 }
 wheels = [
@@ -1770,6 +1770,7 @@ dependencies = [
     { name = "scikit-image" },
     { name = "scikit-learn" },
     { name = "scipy" },
+    { name = "structlog" },
     { name = "torch", version = "2.5.1", source = { registry = "https://pypi.org/simple" }, marker = "platform_system == 'Darwin'" },
     { name = "torch", version = "2.5.1+cu124", source = { registry = "https://download.pytorch.org/whl/cu124" }, marker = "platform_system != 'Darwin'" },
     { name = "torchaudio", version = "2.5.1", source = { registry = "https://pypi.org/simple" }, marker = "platform_system == 'Darwin'" },
@@ -1842,6 +1843,7 @@ requires-dist = [
     { name = "scikit-image", specifier = ">=0.24.0" },
     { name = "scikit-learn", specifier = ">=1.5.2" },
     { name = "scipy", specifier = ">=1.14.1" },
+    { name = "structlog", specifier = ">=24.4.0" },
     { name = "torch", marker = "platform_system != 'Darwin'", specifier = ">=2.5.1", index = "https://download.pytorch.org/whl/cu124" },
     { name = "torch", marker = "platform_system == 'Darwin'", specifier = ">=2.5.1" },
     { name = "torchaudio", marker = "platform_system != 'Darwin'", specifier = ">=2.5.1", index = "https://download.pytorch.org/whl/cu124" },
@@ -2385,6 +2387,15 @@ wheels = [
 ]
 
 [[package]]
+name = "structlog"
+version = "24.4.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/78/a3/e811a94ac3853826805253c906faa99219b79951c7d58605e89c79e65768/structlog-24.4.0.tar.gz", hash = "sha256:b27bfecede327a6d2da5fbc96bd859f114ecc398a6389d664f62085ee7ae6fc4", size = 1348634 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/bf/65/813fc133609ebcb1299be6a42e5aea99d6344afb35ccb43f67e7daaa3b92/structlog-24.4.0-py3-none-any.whl", hash = "sha256:597f61e80a91cc0749a9fd2a098ed76715a1c8a01f73e336b746504d1aad7610", size = 67180 },
+]
+
+[[package]]
 name = "sympy"
 version = "1.13.1"
 source = { registry = "https://pypi.org/simple" }
@@ -2471,8 +2482,8 @@ dependencies = [
     { name = "fsspec", marker = "platform_system == 'Darwin'" },
     { name = "jinja2", marker = "platform_system == 'Darwin'" },
     { name = "networkx", marker = "platform_system == 'Darwin'" },
-    { name = "setuptools", marker = "platform_system == 'Darwin'" },
-    { name = "sympy", marker = "platform_system == 'Darwin'" },
+    { name = "setuptools", marker = "platform_system == 'Darwin' and python_full_version == '3.12.*'" },
+    { name = "sympy", marker = "platform_system == 'Darwin' and python_full_version == '3.12.*'" },
     { name = "typing-extensions", marker = "platform_system == 'Darwin'" },
 ]
 wheels = [
@@ -2504,9 +2515,9 @@ dependencies = [
     { name = "nvidia-nccl-cu12", marker = "platform_machine == 'x86_64' and platform_system == 'Linux'" },
     { name = "nvidia-nvjitlink-cu12", marker = "platform_machine == 'x86_64' and platform_system == 'Linux'" },
     { name = "nvidia-nvtx-cu12", marker = "platform_machine == 'x86_64' and platform_system == 'Linux'" },
-    { name = "setuptools", marker = "platform_system != 'Darwin'" },
-    { name = "sympy", marker = "platform_system != 'Darwin'" },
-    { name = "triton", marker = "platform_machine == 'x86_64' and platform_system == 'Linux'" },
+    { name = "setuptools", marker = "platform_system != 'Darwin' and python_full_version == '3.12.*'" },
+    { name = "sympy", marker = "platform_system != 'Darwin' and python_full_version == '3.12.*'" },
+    { name = "triton", marker = "platform_machine == 'x86_64' and platform_system == 'Linux' and python_full_version == '3.12.*'" },
     { name = "typing-extensions", marker = "platform_system != 'Darwin'" },
 ]
 wheels = [
@@ -2695,7 +2706,7 @@ dependencies = [
     { name = "docker-pycreds" },
     { name = "gitpython" },
     { name = "platformdirs" },
-    { name = "protobuf" },
+    { name = "protobuf", marker = "python_full_version == '3.12.*'" },
     { name = "psutil" },
     { name = "pyyaml" },
     { name = "requests" },

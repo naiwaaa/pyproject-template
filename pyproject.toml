@@ -31,11 +31,12 @@ dependencies = [
   "pydantic-settings>=2.6.1",
   "cloudpickle>=3.1.0",
   "rich[jupyter]>=13.9.4",
+  "structlog>=24.4.0",
 ]
 
 [project.urls]
-Homepage = "https://sr.ht/~naiwaaa/pyproject-template"
-Repository = "https://sr.ht/~naiwaaa/pyproject-template"
+Homepage = "https://git.sr.ht/~naiwaaa/pyproject-template"
+Repository = "https://git.sr.ht/~naiwaaa/pyproject-template"
 
 [project.scripts]
 cli = "pyproject.cli:main"
