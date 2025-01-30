@@ -16,7 +16,7 @@ NC            :=\033[0m
 .PHONY: install ## Install the package, dependencies, and pre-commit for local development
 install: .uv
 	uv sync --frozen --group all --all-extras
-	pre-commit install --install-hooks
+	uv run pre-commit install --install-hooks
 
 .PHONY: upgrade ## Updating all dependencies
 upgrade: .uv
